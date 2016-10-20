@@ -347,6 +347,7 @@ int processpoll<C,H,M>::get_most_free_srv()
                int sockfd = events[i].data.fd;
                if(sockfd == m_listenfd)
                {
+                   /*
                    int i = sub_process_counter;
                     do
                    {
@@ -363,10 +364,10 @@ int processpoll<C,H,M>::get_most_free_srv()
                        break;
                    }
                    sub_process_counter = (i+1)%m_process_number;
-
+                    */
                    int idx = get_most_free_srv();
-                   send(m_sub_process[i].m_pipefd[0],(char*)&new_conn,sizeof(new_conn),0);
-                   //log(LOG_INFO,__FILE__,__LINE__,"send requst to child %d",idx);
+                   send(m_sub_process[idx].m_pipefd[0],(char*)&new_conn,sizeof(new_conn),0);
+                   log(LOG_INFO,__FILE__,__LINE__,"send requst to child %d",idx);
                    printf("send request to child %d\n", i);
                }
                else if((sockfd == sig_pipefd[0]) && (events[i].events & EPOLLIN))
