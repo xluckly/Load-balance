@@ -1,10 +1,3 @@
-/*************************************************************************
-	> File Name: mgr.cpp
-	> Author: 
-	> Mail: 
-	> Created Time: Mon 10 Oct 2016 03:36:43 PM CST
- ************************************************************************/
-
 #include<iostream>
 #include <sys/socket.h>
 #include <sys/types.h>

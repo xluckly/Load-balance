@@ -366,7 +366,7 @@ int processpoll<C,H,M>::get_most_free_srv()
                    sub_process_counter = (i+1)%m_process_number;
                     */
                    int idx = get_most_free_srv();
-                   send(m_sub_process[idx].m_pipefd[0],(char*)&new_conn,sizeof(new_conn),0);
+                   send(m_sub_process[i].m_pipefd[0],(char*)&new_conn,sizeof(new_conn),0);
                    log(LOG_INFO,__FILE__,__LINE__,"send requst to child %d",idx);
                    printf("send request to child %d\n", i);
                }
